@@ -8,4 +8,3 @@ coverage
 .env.local
 .env.production
 .env.development
-convex/_generated

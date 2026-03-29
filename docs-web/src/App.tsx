@@ -106,6 +106,17 @@ function App() {
                 backend so medication routines, product intelligence, reminders, and follow-up rules all live in one
                 product system.
               </p>
+              <div className="docs-hero__meta">
+                <a className="docs-inline-link docs-inline-link--surface" href={FIGMA_URL} rel="noreferrer" target="_blank">
+                  <Link2 size={16} />
+                  Figma system
+                </a>
+                <a className="docs-inline-link docs-inline-link--surface" href={REPO_URL} rel="noreferrer" target="_blank">
+                  <Github size={16} />
+                  Source repo
+                </a>
+                <Pill tone="white">GitHub Pages ready</Pill>
+              </div>
               <div className="docs-link-row">
                 {productLinks.map((link) => (
                   <a className={`docs-action docs-action--${link.tone}`} href={link.href} key={link.href}>

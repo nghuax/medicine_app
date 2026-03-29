@@ -3,9 +3,16 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 
+function resolveBasePath(prefix: string | undefined, pathName: string) {
+  const normalizedPrefix = (prefix ?? "").replace(/\/+$/, "");
+  const normalizedPath = pathName.startsWith("/") ? pathName : `/${pathName}`;
+  const combined = `${normalizedPrefix}${normalizedPath}`;
+  return combined.replace(/\/{2,}/g, "/");
+}
+
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/app/",
+  base: resolveBasePath(process.env.PAGES_BASE_PREFIX, "/app/"),
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

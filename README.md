@@ -200,6 +200,36 @@ The final outputs include:
 - `mobile-app/dist/.htaccess`
 - `admin-web/dist/.htaccess`
 
+## GitHub Pages
+
+This repo also supports GitHub Pages deployment through GitHub Actions.
+
+Expected public paths:
+
+- mobile app: `/medicine_app/app/`
+- admin app: `/medicine_app/admin/`
+
+Workflow file:
+
+- `.github/workflows/deploy-pages.yml`
+
+The workflow builds both Vite apps with a GitHub Pages base prefix, assembles them into one Pages artifact, and publishes them through the official Pages deploy action.
+
+To finish enabling it in GitHub:
+
+1. Open the repo settings
+2. Go to `Pages`
+3. Set the source to `GitHub Actions`
+4. Merge the PR with the workflow into `main`
+5. Run the workflow or push to `main`
+
+The workflow currently injects:
+
+- `VITE_CONVEX_URL=https://moonlit-retriever-161.convex.cloud`
+- `VITE_CONVEX_HTTP_URL=https://moonlit-retriever-161.convex.site`
+
+These values are public client-side endpoints, so they can be used directly in the Pages build.
+
 ## Integration Placeholders
 
 These are implemented behind clean adapter boundaries and can be swapped later without major UI refactors:
@@ -208,4 +238,3 @@ These are implemented behind clean adapter boundaries and can be swapped later w
 - Zalo integration: placeholder connect hook, no real OAuth or delivery setup
 - Smartwatch / Apple Watch sync: mock adapter only
 - AI calorie scanning: mock analyzer interface with clear replacement point for a real multimodal service
-

@@ -2,9 +2,18 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>admin-web</title>
+    <title>MediFlow Admin</title>
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var route = params.get("route");
+        if (!route) return;
+        var base = window.location.pathname.replace(/index\.html$/, "").replace(/\/$/, "");
+        window.history.replaceState(null, "", base + route);
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

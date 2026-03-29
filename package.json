@@ -12,6 +12,7 @@
     "build": "npm run build -w mobile-app && npm run build -w admin-web",
     "build:mobile": "npm run build -w mobile-app",
     "build:admin": "npm run build -w admin-web",
+    "build:pages": "node ./scripts/build-pages.mjs",
     "lint": "npm run lint -w mobile-app && npm run lint -w admin-web",
     "convex:dev": "convex dev",
     "convex:codegen": "convex codegen"

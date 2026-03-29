@@ -2,6 +2,7 @@
 
 This workspace now contains a production-built medicine tracking platform split into:
 
+- `docs-web/`: dedicated system overview and documentation website deployed at the root Pages path
 - `mobile-app/`: mobile-first user app built for `/app/`
 - `admin-web/`: admin dashboard built for `/admin/`
 - `convex/`: shared backend schema, queries, mutations, and HTTP actions
@@ -107,6 +108,7 @@ npm install
 Run the apps:
 
 ```bash
+npm run dev -w docs-web
 npm run dev -w mobile-app
 npm run dev -w admin-web
 ```
@@ -120,6 +122,7 @@ npm run build
 Or individually:
 
 ```bash
+npm run build -w docs-web
 npm run build:mobile
 npm run build:admin
 ```
@@ -206,6 +209,7 @@ This repo also supports GitHub Pages deployment through GitHub Actions.
 
 Expected public paths:
 
+- docs site: `/medicine_app/`
 - mobile app: `/medicine_app/app/`
 - admin app: `/medicine_app/admin/`
 

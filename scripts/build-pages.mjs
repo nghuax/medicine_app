@@ -118,11 +118,15 @@ function createNotFoundPage() {
         var pathName = window.location.pathname.startsWith(repoBase)
           ? window.location.pathname.slice(repoBase.length)
           : window.location.pathname;
-        var targetBase = pathName.startsWith("/admin/") ? repoBase + "/admin/" : repoBase + "/app/";
+        var targetBase = repoBase + "/app/";
         var route = "/";
 
         if (pathName.startsWith("/admin/")) {
+          targetBase = repoBase + "/admin/";
           route = pathName.slice("/admin".length) || "/";
+        } else if (pathName.startsWith("/app-skip-login/")) {
+          targetBase = repoBase + "/app-skip-login/";
+          route = pathName.slice("/app-skip-login".length) || "/";
         } else if (pathName.startsWith("/app/")) {
           route = pathName.slice("/app".length) || "/";
         }
@@ -142,9 +146,11 @@ mkdirSync(pagesDir, { recursive: true });
 
 run("npm", ["run", "build", "-w", "mobile-app"], { PAGES_BASE_PREFIX: pagesBasePrefix });
 run("npm", ["run", "build", "-w", "admin-web"], { PAGES_BASE_PREFIX: pagesBasePrefix });
+run("npm", ["run", "build", "-w", "mobile-app-skip-login"], { PAGES_BASE_PREFIX: pagesBasePrefix });
 
 cpSync(path.join(rootDir, "mobile-app", "dist"), path.join(pagesDir, "app"), { recursive: true });
 cpSync(path.join(rootDir, "admin-web", "dist"), path.join(pagesDir, "admin"), { recursive: true });
+cpSync(path.join(rootDir, "mobile-app-skip-login", "dist"), path.join(pagesDir, "app-skip-login"), { recursive: true });
 
 writeFile(path.join(pagesDir, "index.html"), createLandingPage());
 writeFile(path.join(pagesDir, "404.html"), createNotFoundPage());

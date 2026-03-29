@@ -6,7 +6,8 @@
   "packageManager": "npm@11.9.0",
   "workspaces": [
     "mobile-app",
-    "admin-web"
+    "admin-web",
+    "mobile-app-skip-login"
   ],
   "scripts": {
     "build": "npm run build -w mobile-app && npm run build -w admin-web",

@@ -97,6 +97,7 @@ function createLandingPage() {
       <p>GitHub Pages build for the mobile medicine app and the admin dashboard.</p>
       <div class="links">
         <a href="./app/">Open mobile app <span>/app/</span></a>
+        <a href="./app-skip-login/">Open no-login app <span>/app-skip-login/</span></a>
         <a class="admin" href="./admin/">Open admin dashboard <span>/admin/</span></a>
       </div>
     </main>

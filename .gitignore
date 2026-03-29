@@ -1,0 +1,11 @@
+node_modules
+dist
+.pages
+coverage
+.DS_Store
+*.tsbuildinfo
+.env
+.env.local
+.env.production
+.env.development
+convex/_generated

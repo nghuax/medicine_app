@@ -11,6 +11,7 @@ export function Card({ children, className, tone = "surface", ...props }: PropsW
   return (
     <div
       className={cn(
+        "card-shell",
         tone === "surface" && "surface-card",
         tone === "lime" && "lime-card",
         tone === "mint" && "mint-card",

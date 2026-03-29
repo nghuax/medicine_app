@@ -1,0 +1,22 @@
+{
+  "name": "mediflow-workspace",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "packageManager": "npm@11.9.0",
+  "workspaces": [
+    "mobile-app",
+    "admin-web"
+  ],
+  "scripts": {
+    "build": "npm run build -w mobile-app && npm run build -w admin-web",
+    "build:mobile": "npm run build -w mobile-app",
+    "build:admin": "npm run build -w admin-web",
+    "lint": "npm run lint -w mobile-app && npm run lint -w admin-web",
+    "convex:dev": "convex dev",
+    "convex:codegen": "convex codegen"
+  },
+  "devDependencies": {
+    "convex": "^1.34.1"
+  }
+}

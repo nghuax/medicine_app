@@ -64,8 +64,10 @@ export function SegmentedControl({ options, value, onChange, ariaLabel = "Segmen
           <button
             aria-checked={active}
             className={cn(
-              "min-h-[44px] rounded-full px-3 py-2 text-[13px] font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--lime-700)] min-[400px]:text-sm",
-              active ? "bg-[var(--lime-100)] text-[var(--text)] shadow-[inset_0_0_0_1px_rgba(127,186,30,0.08)]" : "text-[var(--muted)]",
+              "min-h-[44px] rounded-full px-3 py-2 text-[13px] font-semibold transition-[transform,background-color,color,box-shadow] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--lime-700)] will-change-transform hover:-translate-y-0.5 active:translate-y-px active:scale-[0.99] min-[400px]:text-sm",
+              active
+                ? "bg-[var(--lime-100)] text-[var(--text)] shadow-[0_10px_18px_rgba(127,186,30,0.12),inset_0_0_0_1px_rgba(127,186,30,0.08)]"
+                : "text-[var(--muted)] hover:bg-white/80 hover:text-[var(--text)]",
             )}
             key={option.value}
             onKeyDown={(event) => handleKeyDown(event, index)}

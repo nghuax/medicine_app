@@ -47,9 +47,9 @@ export function AdminShell({
                 <NavLink
                   className={({ isActive }) =>
                     cn(
-                      "flex items-center gap-3 rounded-[24px] px-4 py-3 text-sm font-semibold text-[var(--muted)] transition-colors",
+                      "flex items-center gap-3 rounded-[24px] px-4 py-3 text-sm font-semibold text-[var(--muted)] transition-[transform,background-color,color,box-shadow] duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform hover:translate-x-0.5 active:translate-y-px active:scale-[0.995]",
                       isActive
-                        ? "bg-[var(--lime-100)] text-[var(--text)] shadow-[inset_0_0_0_1px_rgba(127,186,30,0.06)]"
+                        ? "bg-[var(--lime-100)] text-[var(--text)] shadow-[0_14px_24px_rgba(127,186,30,0.1),inset_0_0_0_1px_rgba(127,186,30,0.06)]"
                         : "hover:bg-white/70 hover:text-[var(--text)]",
                     )
                   }
